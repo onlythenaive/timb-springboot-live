@@ -1,1 +1,1 @@
-# timb-springboot-live
+# TIMB Java School: Spring Boot Live

@@ -1,0 +1,14 @@
+# Java, Maven, Gradle
+.gradle/
+out/
+build/
+target/
+*.jar
+*.war
+
+# Gradle wrapper
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
