@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -20,6 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class PersistenceConfiguration {
 
+    // Data Source
     @Bean
     public DataSource dataSourceHsql() {
         return new EmbeddedDatabaseBuilder()
@@ -28,6 +30,7 @@ public class PersistenceConfiguration {
                 .build();
     }
 
+    // Mapping DATA -> CLASSES
     @Bean
     public HibernateJpaVendorAdapter vendorAdapterHsql() {
         final HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
@@ -36,6 +39,7 @@ public class PersistenceConfiguration {
         return adapter;
     }
 
+    // Controls entities
     @Bean
     public EntityManagerFactory entityManagerFactory(DataSource dataSource, HibernateJpaVendorAdapter adapter) {
         final LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
